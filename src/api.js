@@ -40,10 +40,4 @@ router.post('/animation', (req, res) => {
 
 app.use('/.netlify/functions/api', router)
 
-// const port = process.env.PORT || 8000
-
-// app.listen(port, () => {
-//   console.log('listening on port', port)
-// })
-
 module.exports.handler = serverles(app)
