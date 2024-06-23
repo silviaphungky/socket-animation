@@ -34,11 +34,6 @@ router.post('/animation', (req, res) => {
         .status(201)
         .json({ message: 'Successfully create animation', data: animation })
     )
-    // const animation = new Animation({ json })
-    //     console.log('masuk post', Animation.)
-    // animation.save()
-
-    // return res.status(201).json({ message: 'Successfully create animation' })
   } catch (error) {
     console.log(error, 'Failed create animation')
   }
