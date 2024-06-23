@@ -4,7 +4,7 @@ require('dotenv').config()
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-const serverles = require('serverless-http')
+const serverless = require('serverless-http')
 
 // import
 require('../db/connection')
@@ -40,4 +40,8 @@ router.post('/animation', (req, res) => {
 
 app.use('/.netlify/functions/api', router)
 
-module.exports.handler = serverles(app)
+const handler = serverless(app)
+module.exports.handler = async (event, context) => {
+  const result = await handler(event, context)
+  return result
+}
