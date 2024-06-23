@@ -1,5 +1,14 @@
 const express = require('express')
 require('dotenv').config()
+const io = require('socket.io')(8080)
+
+io.on('connection', (socket) => {
+  console.log('socket connected **********')
+  // socket.on('sendTest', (params) => {
+  //   socket.params = params
+  // })
+  // io.emit('getTest', socket.params)
+})
 
 const app = express()
 app.use(express.json())
