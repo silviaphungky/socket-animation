@@ -28,6 +28,7 @@ router.get('/', (req, res) => {
 
 router.post('/animation', (req, res) => {
   try {
+    console.log('masuk post')
     const { json } = req.body
     const animation = new Animation({ json })
     animation.save()
