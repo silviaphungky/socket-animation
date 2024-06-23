@@ -28,12 +28,17 @@ router.get('/', (req, res) => {
 
 router.post('/animation', (req, res) => {
   try {
-    console.log('masuk post')
     const { json } = req.body
-    const animation = new Animation({ json })
-    animation.save()
+    Animation.create(req.body).then((animation) =>
+      res
+        .status(201)
+        .json({ message: 'Successfully create animation', data: animation })
+    )
+    // const animation = new Animation({ json })
+    //     console.log('masuk post', Animation.)
+    // animation.save()
 
-    return res.status(201).json({ message: 'Successfully create animation' })
+    // return res.status(201).json({ message: 'Successfully create animation' })
   } catch (error) {
     console.log(error, 'Failed create animation')
   }
